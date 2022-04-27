@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    int n,tot_cost,prev_cost,ctr=0;
+    scanf("%d",&n);
+    int a,p,sum=0;
+    while(n--){
+        scanf("%d %d",&a,&p);
+        tot_cost=a*p;
+        if(ctr==0){
+            prev_cost=p;
+            sum+=tot_cost;
+            ctr++;
+        }
+        else{
+            if(p<prev_cost){
+                sum+=tot_cost;
+                prev_cost=p;
+            }
+            else{
+                tot_cost=a*prev_cost;
+                sum+=tot_cost;
+            }
+        }
+    }
+    printf("%d\n",sum);
+    return 0;
+}
